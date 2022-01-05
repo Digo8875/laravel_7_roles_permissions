@@ -6,9 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Traits\HasRolesPermissionsTrait;
+
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasRolesPermissionsTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -36,22 +39,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    /**
-     * Get the Roles that owns the User.
-     */
-    public function roles()
-    {
-        return $this->belongsToMany('App\Models\Role', 'user_role', 'id_user', 'id_role')->as('user_role')->withTimestamps()->withPivot('created_at', 'updated_at');
-    }
-
-    /**
-     * Get the Permissions that owns the User.
-     */
-    public function permissions()
-    {
-        return $this->belongsToMany('App\Models\Permission', 'user_permission', 'id_user', 'id_permission')->as('user_permission')->withTimestamps()->withPivot('created_at', 'updated_at');
-    }
 
     /**
      * Get the Artigos created for the User.

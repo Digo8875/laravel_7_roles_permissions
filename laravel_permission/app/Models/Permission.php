@@ -18,7 +18,7 @@ class Permission extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'slug', 'expires_at', 'status',
+        'name', 'slug', 'descricao',
     ];
 
     /**
@@ -36,7 +36,7 @@ class Permission extends Model
      * @var array
      */
     protected $hidden = [
-        'expires_at' => 'datetime',
+        '',
     ];
 
     /**
@@ -53,7 +53,7 @@ class Permission extends Model
      */
     public function roles()
     {
-        return $this->belongsToMany('App\Models\Role', 'role_permission', 'id_permission', 'id_role')->as('role_permission')->withTimestamps()->withPivot('created_at', 'updated_at');
+        return $this->belongsToMany('App\Models\Role', 'role_permission', 'id_permission', 'id_role')->as('role_permission')->withTimestamps()->withPivot('created_at', 'updated_at', 'expires_at', 'status');
     }
 
     /**
@@ -61,6 +61,6 @@ class Permission extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('App\User', 'user_permission', 'id_permission', 'id_user')->as('user_permission')->withTimestamps()->withPivot('created_at', 'updated_at');
+        return $this->belongsToMany('App\User', 'user_permission', 'id_permission', 'id_user')->as('user_permission')->withTimestamps()->withPivot('created_at', 'updated_at', 'expires_at', 'status');
     }
 }

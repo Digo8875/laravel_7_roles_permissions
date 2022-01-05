@@ -16,6 +16,8 @@ class CreateRolePermissionTable extends Migration
         Schema::create('role_permission', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->timestamp('expires_at')->nullable();
+            $table->string('status'); // LOCKED, UNLOKED, EXPIRED
 
             $table->unsignedBigInteger('id_role');
             $table->unsignedBigInteger('id_permission');

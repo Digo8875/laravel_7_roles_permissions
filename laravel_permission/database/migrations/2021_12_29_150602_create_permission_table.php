@@ -17,9 +17,8 @@ class CreatePermissionTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('slug');
-            $table->timestamp('expires_at')->nullable();
-            $table->string('status'); // LOCKED, UNLOKED, EXPIRED
+            $table->string('slug')->unique();
+            $table->string('descricao')->nullable();
         });
     }
 

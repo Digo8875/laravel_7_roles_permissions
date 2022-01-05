@@ -55,6 +55,42 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <div class="row m-0 p-0 px-1 bg-light">
+                                        {{ __('Escritor') }}
+                                    </div>
+                                    <a class="dropdown-item" href="{{ route('artigo.index') }}">
+                                        {{ __('Meus Artigos') }}
+                                    </a>
+
+                                    <hr>
+                                    <div class="row m-0 p-0 px-1 bg-light">
+                                        {{ __('Revisor') }}
+                                    </div>
+                                    <a class="dropdown-item" href="{{ route('listar_artigos_revisao') }}">
+                                        {{ __('Artigos para Revisar') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('listar_artigos_revisados') }}">
+                                        {{ __('Artigos Revisados') }}
+                                    </a>
+
+                                    <hr>
+                                    <div class="row m-0 p-0 px-1 bg-light">
+                                        {{ __('Leitor') }}
+                                    </div>
+                                    <a class="dropdown-item" href="{{ route('pesquisar_artigos') }}">
+                                        {{ __('Pesquisar Artigos') }}
+                                    </a>
+
+                                    <hr>
+                                    <div class="row m-0 p-0 px-1 bg-light">
+                                        {{ __('Admins') }}
+                                    </div>
+                                    <a class="dropdown-item" href="{{ route('permission.index') }}">
+                                        {{ __('Permissões do Sistema') }}
+                                    </a>
+
+                                    <hr>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

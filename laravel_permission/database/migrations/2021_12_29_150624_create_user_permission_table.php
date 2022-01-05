@@ -16,6 +16,8 @@ class CreateUserPermissionTable extends Migration
         Schema::create('user_permission', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->timestamp('expires_at')->nullable();
+            $table->string('status')->default('UNLOCKED'); // LOCKED, UNLOKED, EXPIRED
 
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_permission');

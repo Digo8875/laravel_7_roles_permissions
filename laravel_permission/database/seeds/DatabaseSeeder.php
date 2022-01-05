@@ -16,7 +16,11 @@ class DatabaseSeeder extends Seeder
         //Chamada dos Seeders para popular o DB inicial
         $this->call([
 
+            UserTableSeeder::class,
             RoleTableSeeder::class,
+            UserRoleTableSeeder::class,
+            PermissionTableSeeder::class,
+            UserPermissionTableSeeder::class,
 
         ]);
     }

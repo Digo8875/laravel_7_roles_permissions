@@ -61,6 +61,6 @@ class Role extends Model
      */
     public function permissions()
     {
-        return $this->belongsToMany('App\Models\Permission', 'role_permission', 'id_role', 'id_permission')->as('role_permission')->withTimestamps()->withPivot('created_at', 'updated_at');
+        return $this->belongsToMany('App\Models\Permission', 'role_permission', 'id_role', 'id_permission')->as('role_permission')->withTimestamps()->withPivot('created_at', 'updated_at', 'expires_at', 'status');
     }
 }
